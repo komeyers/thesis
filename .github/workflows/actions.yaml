@@ -1,0 +1,14 @@
+name: Delete untagged GHCR images
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Delete untagged container images
+        uses: minish144/delete-untagged-action@v2
+        with:
+          github-token: ${{ secrets.DELETE_PACKAGES_TOKEN }}
